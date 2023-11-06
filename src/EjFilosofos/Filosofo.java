@@ -1,6 +1,6 @@
 package EjFilosofos;
 
-public class Filosofo {
+public class Filosofo  extends Thread{
 
     private String nombre;
 
