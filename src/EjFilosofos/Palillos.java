@@ -12,7 +12,7 @@ public class Palillos{
 
     public synchronized void dejarPalillo () throws InterruptedException{
         estaLibre=true;
-        notify();
+        notifyAll();
         }
     }
 
