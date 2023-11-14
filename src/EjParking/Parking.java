@@ -7,7 +7,7 @@ public class Parking {
     private int plazasOcupadas;
 
 
-    public Parking(int totalPlazas, int cochesExisten){ // te pide el ejercicio que lo recibas
+    public Parking(int totalPlazas, int cochesExisten){
         this.totalPlazas = totalPlazas;
         this.plazas = new Plaza[totalPlazas];
         for (int i = 0; i < totalPlazas; i++) {
@@ -35,7 +35,7 @@ public class Parking {
         plazaAOcupar.ocupar();
         plazasOcupadas++;
 
-        System.out.println("El coche " + idCoche + " ha entrado al parking. Plaza ocupada " + plazaAOcupar.getNumero());
+        System.out.println("El coche: " + idCoche + " ha entrado al parking. Plaza ocupada " + plazaAOcupar.getNumero());
         return plazaAOcupar;
     }
 
@@ -43,15 +43,18 @@ public class Parking {
         plaza.liberar();
         plazasOcupadas--;
 
-        System.out.println("El coche " + idCoche + " ha salido del parking. Plaza libre " + plaza.getNumero());
+        System.out.println("El coche: " + idCoche + " ha salido del parking. Plaza libre " + plaza.getNumero());
+        // cuando una plaza se libera notifica a todos los hilos que intentan entrar al parking
         notifyAll();
     }
     private synchronized Plaza plazaLibre() throws NoPlazasLibresException {
+        // recorremos el array de plazas y y la primera que haya libre se devuelve
         for (Plaza plaza : plazas){
             if(plaza.libre){
                 return plaza;
             }
         }
+        // excepcion creada para cuando no haya ninguna plaza libre
         throw new NoPlazasLibresException();
     }
 }

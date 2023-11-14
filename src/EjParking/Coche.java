@@ -16,13 +16,13 @@ public class Coche extends Thread {
         while(true){
             try {
                 if (parking.puedeEntrar()) {
-                    System.out.println("Coche " + id + " quiere aparcar en el Parking");
+                    System.out.println("El Coche: " + id + " quiere aparcar en el Parking");
                     Plaza plaza = parking.entrar(id);
                     Thread.sleep(TIEMPO_ESPERA);
                     parking.salir(id, plaza);
                     Thread.sleep(TIEMPO_ESPERA);
                 } else {
-                    System.out.println("Coche " + id + " no puede entrar al Parking. Esperando...");
+                    System.out.println("El Coche: " + id + " no puede entrar al Parking. Esperando...");
                     Thread.sleep(1000);
                 }
             } catch (NoPlazasLibresException | InterruptedException e) {
