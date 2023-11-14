@@ -14,12 +14,17 @@ public class Coche extends Thread {
     @Override
     public void run() {
         while(true){
-            try{
-                Plaza plaza = parking.entrar(id);
-                Thread.sleep(TIEMPO_ESPERA);
-                parking.salir(id,plaza);
-                Thread.sleep(TIEMPO_ESPERA);
-            } catch (InterruptedException e) {
+            try {
+                if (parking.puedeEntrar()) {
+                    Plaza plaza = parking.entrar(id);
+                    Thread.sleep(TIEMPO_ESPERA);
+                    parking.salir(id, plaza);
+                    Thread.sleep(TIEMPO_ESPERA);
+                } else {
+                    System.out.println("Coche " + id + " no puede entrar al Parking. Esperando...");
+                    Thread.sleep(1000);
+                }
+            }catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
         }
