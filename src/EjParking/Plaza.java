@@ -2,7 +2,7 @@ package EjParking;
 
 public class Plaza {
     int numero;
-    boolean libre = true;
+    boolean libre;
 
     public Plaza(int numero) {
         this.numero = numero;
@@ -19,11 +19,13 @@ public class Plaza {
     }
 
     public boolean liberar() {
+        libre = true;
         return libre;
     }
 
     public boolean ocupar() {
-        return libre = false;
+        libre = false;
+        return libre;
     }
 
 }
