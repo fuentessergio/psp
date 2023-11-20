@@ -28,7 +28,6 @@ public class Parking {
     }
     public synchronized Plaza entrar(int idCoche) throws NoPlazasLibresException, InterruptedException {
         while(!puedeEntrar()){
-
             wait(); // no hay plaza disponible, los coches tienen que esperar para entrar
         }
 

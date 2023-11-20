@@ -8,9 +8,9 @@ public class Ejemplo3_Error {
     public static void main(String[] args) throws IOException {
         // TODO Auto-generated method stub
         //creamos objeto File al directorio donde está Ejemplo2
-        File d = new File("C:\\Users\\2DAM\\IdeaProjects\\psp");
+        File d = new File("C:\\Users\\2DAM\\Documents\\GitHub\\PSP\\out\\production\\psp");
         //proceso a ejecutar es Ejemplo2
-        ProcessBuilder pb = new ProcessBuilder("java","LerPorNombre","SERGIO");
+        ProcessBuilder pb = new ProcessBuilder("java","LeerPorNombre","SERGIO");
         //ejecutar proceso
         Process p = pb.start();
         pb.redirectErrorStream(true);

@@ -5,8 +5,8 @@ import java.io.*;
 public class EjecutarLeerPorNombre {
 
             public static void main(String[] args) throws IOException {
-                String ruta = "C:\\Users\\2DAM\\IdeaProjects\\psp\\out\\production\\";
-                ProcessBuilder pb = new ProcessBuilder("java", "-cp", ruta, "LeerPorNombre","SERG");
+                String ruta = "C:\\Users\\2DAM\\Documents\\GitHub\\PSP\\out\\production\\psp";
+                ProcessBuilder pb = new ProcessBuilder("java", "-cp", ruta, "ProgramacionMultipleUd1.LeerPorNombre","Sergio");
                 // -cp para la classpath, no sale en este proyecto pero si en el de actividad 1
                 Process p = pb.start();
 
