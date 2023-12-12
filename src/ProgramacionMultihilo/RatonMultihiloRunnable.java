@@ -29,7 +29,13 @@ public class RatonMultihiloRunnable implements Runnable {
 
     @Override
     public void run() {
-        this.comer();
+        Thread.State estado = Thread.currentThread().getState();
+        System.out.println("Estado del hilo " + nombre +  " al inicio: " + estado);
+
+        for (int i = 0; i < 3; i++) {
+            comer();
+        }
+
     }
 
 
@@ -37,12 +43,23 @@ public class RatonMultihiloRunnable implements Runnable {
         // TODO Auto-generated method stub
 
         RatonMultihiloRunnable fievel = new RatonMultihiloRunnable("Fievel", 4);
-        RatonMultihiloRunnable jerry = new RatonMultihiloRunnable("Jerry", 5);
+        /*RatonMultihiloRunnable jerry = new RatonMultihiloRunnable("Jerry", 5);
         RatonMultihiloRunnable pinky = new RatonMultihiloRunnable("Pinky", 3);
-        RatonMultihiloRunnable mickey = new RatonMultihiloRunnable("Mickey", 6);
-        new Thread(fievel).start();
-        new Thread(jerry).start();
-        new Thread(pinky).start();
-        new Thread(mickey).start();
+        RatonMultihiloRunnable mickey = new RatonMultihiloRunnable("Mickey", 6);*/
+
+        Thread hilo = new Thread(fievel);
+        Thread.State estado = hilo.getState();
+        System.out.println("Estado del hilo " + fievel.nombre + " antes de iniciar: " + estado);
+
+        hilo.start();
+
+        try {
+            hilo.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        estado = hilo.getState();
+        System.out.println("Estado del hilo " + fievel.nombre + " después de finalizar: " + estado);
+
     }
 }
