@@ -5,55 +5,42 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Suma {
-    /** Escribe un programa Java que lea dos números desde la entrada estándar y
-     visualice su suma. Controlar que lo introducido por teclado sean dos números. Haz
-     otro programa Java para ejecutar el anterior, enviándole los datos necesarios por un
-     stream.
+    /**
+     * Escribe un programa Java que lea dos números desde la entrada estándar y
+     * visualice su suma. Controlar que lo introducido por teclado sean dos números. Haz
+     * otro programa Java para ejecutar el anterior, enviándole los datos necesarios por un
+     * stream.
      */
     public static void main(String[] args) throws IOException {
-        InputStreamReader in = new InputStreamReader(System.in);
-        BufferedReader br = new BufferedReader(in);
-        double num1, num2, resultado;
-        boolean entradaOk = false;
 
-        while (!entradaOk) {
-
-            try {
-                System.out.println("Introduce el primer número: ");
-                String numero1 = br.readLine();
-                System.out.println("Introduce el segundo número: ");
-                String numero2 = br.readLine();
-
-                if (esNumero(numero1) && esNumero(numero2)) {
-                    num1 = Double.parseDouble(numero1);
-                    num2 = Double.parseDouble(numero2);
-
-                    resultado = num1 + num2;
-                    System.out.println("El resultado de " + num1 + " + " + num2 + " = " + resultado);
-                    entradaOk = true;
-                } else {
-                    System.out.println("Error. Introduzca 2 números para realizar la suma ");
-                }
-            } catch (IOException e){
-                e.printStackTrace();
-            }
+        if (args.length != 2) {
+            System.err.println("Error: Debe proporcionar exactamente dos números como argumentos.");
+            System.exit(-1); // Finalización con error
         }
+
         try {
-            in.close(); // Cerrar el flujo de entrada al finalizar, y no dentro del bucle while que lo hace infinito
-        } catch (IOException e) {
-            e.printStackTrace();
+            int numero1 = Integer.parseInt(args[0]);
+            int numero2 = Integer.parseInt(args[1]);
+
+            int suma = sumar(numero1, numero2);
+
+            System.out.println("La suma de " + numero1 + " y " + numero2 + " es: " + suma);
+            System.exit(0);
+        } catch (NumberFormatException e) {
+            System.err.println("Error: Los argumentos deben ser números enteros.");
+            System.exit(-1); // Finalización con error
         }
     }
 
-    private static boolean esNumero(String str) {
-        //Creamos un metodo que compruebe si el string introducido es un numero y lo convierte a numero.
-        try {
-            Double.parseDouble(str); // conversion a double
-            return true;
-        } catch (NumberFormatException e) {
-            return false;
-        }
+    public static int sumar(int a, int b) {
+        return a + b;
     }
 }
+
+
+
+
+
+
 
 

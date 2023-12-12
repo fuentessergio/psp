@@ -7,7 +7,7 @@ public class Relevos {
 		
 		Testigo testigo = new Testigo();
 		
-		Corredor corredores[]=new Corredor[4];
+		Corredor[] corredores =new Corredor[4];
 		for (int i = 0; i < 4; i++) {
 			corredores[i]=new Corredor(i+1,testigo);
 			corredores[i].start();

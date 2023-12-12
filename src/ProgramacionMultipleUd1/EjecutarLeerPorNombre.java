@@ -5,9 +5,9 @@ import java.io.*;
 public class EjecutarLeerPorNombre {
 
             public static void main(String[] args) throws IOException {
-                String ruta = "C:\\Users\\2DAM\\Documents\\GitHub\\PSP\\out\\production\\psp";
-                ProcessBuilder pb = new ProcessBuilder("java", "-cp", ruta, "ProgramacionMultipleUd1.LeerPorNombre","Sergio");
-                // -cp para la classpath, no sale en este proyecto pero si en el de actividad 1
+                String ruta = "C:\\Users\\fuent\\OneDrive\\Documentos\\GitHub\\psp\\out\\production\\psp";
+                ProcessBuilder pb = new ProcessBuilder("java", "-cp", ruta, "ProgramacionMultipleUd1.LeerPorNombre","sergio", "quetal");
+
                 Process p = pb.start();
 
                 InputStream is = p.getInputStream();
@@ -25,8 +25,10 @@ public class EjecutarLeerPorNombre {
                     }
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
+                } finally{
+                    is.close();
+                    isErr.close();
                 }
-
 
             }
     }
