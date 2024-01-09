@@ -1,4 +1,4 @@
-package com.iesinfantaelena;
+package SegundaEvaluacion.ProgramacionComunicacionEnRed.HilosObjetosTCP;
 
 public class HilosObjetosTCPObjetoCompartido {
 	
