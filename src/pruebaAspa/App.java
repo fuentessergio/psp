@@ -146,6 +146,17 @@ public class App {
             }
         }
     }
+    public User findByUserName(List<User> users, String name) throws MiExcepcion {
+        if(users != null && name != null){
+            for (User user : users){
+                    if(user != null && user.getName().equalsIgnoreCase(name)){
+                        return user;
+                    }
+            }
+            throw new MiExcepcion("");
+        }
+        throw new MiExcepcion("");
+    }
     public static void main(String[] args) {
         App miApp = new App();
         //miApp.invertirCadena("pruebaAspa");
@@ -164,7 +175,7 @@ public class App {
             throw new RuntimeException(e);
         }*/
         //miApp.numerosPares(Arrays.asList(1,2,3,4,5,6,7,8,9,2));
-        miApp.iterator();
+        //miApp.iterator();
 
     }
 }
