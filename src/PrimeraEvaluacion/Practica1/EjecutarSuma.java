@@ -9,12 +9,12 @@ public class EjecutarSuma {
      * stream.
      */
     public static void main(String[] args) throws IOException {
-        File directorio = new File("C:\\Users\\fuent\\OneDrive\\Documentos\\GitHub\\psp\\out\\production\\psp");
-        // String ruta = "C:\\Users\\fuent\\Desktop\\2ºDAM\\PSP\\out\\production\\PSP\\PrimeraEvaluacion.Practica1";
+        //File directorio = new File("C:\\Users\\fuent\\OneDrive\\Documentos\\GitHub\\psp\\out\\production\\psp");
+        String ruta = "C:\\Users\\fuent\\OneDrive\\Documentos\\GitHub\\psp\\out\\production\\psp";
 
-        ProcessBuilder pb = new ProcessBuilder("java", "PrimeraEvaluacion.Practica1.Suma", "5","100");
-        pb.directory(directorio);
-        System.out.println(directorio);
+        ProcessBuilder pb = new ProcessBuilder("java","-cp",ruta, "PrimeraEvaluacion.Practica1.Suma", "5","100");
+        /*pb.directory(directorio);
+        System.out.println(directorio);*/
         Process p = pb.start();
 
         OutputStream os = p.getOutputStream();

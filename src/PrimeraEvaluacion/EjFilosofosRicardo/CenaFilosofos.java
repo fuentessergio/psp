@@ -8,7 +8,7 @@ public class CenaFilosofos {
 	
 	public static void main(String[] args) throws InterruptedException{
 		
-		int filosofos= Integer.parseInt(args[0]); // lo corre por consola
+		int filosofos= 4; // lo corre por consola
 		mesa=new MesaCircular(filosofos);
 		System.out.println("Sentados "+filosofos+" filósofos");
 		

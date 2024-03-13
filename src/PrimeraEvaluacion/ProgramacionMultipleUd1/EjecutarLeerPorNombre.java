@@ -6,7 +6,7 @@ public class EjecutarLeerPorNombre {
 
             public static void main(String[] args) throws IOException {
                 String ruta = "C:\\Users\\fuent\\OneDrive\\Documentos\\GitHub\\psp\\out\\production\\psp";
-                ProcessBuilder pb = new ProcessBuilder("java", "-cp", ruta, "PrimeraEvaluacion.ProgramacionMultipleUd1.LeerPorNombre","sergio", "quetal");
+                ProcessBuilder pb = new ProcessBuilder("java", "-cp", ruta, "PrimeraEvaluacion.ProgramacionMultipleUd1.LeerPorNombre","sergio");
 
                 Process p = pb.start();
 

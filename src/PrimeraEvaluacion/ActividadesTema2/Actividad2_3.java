@@ -38,7 +38,9 @@ public class Actividad2_3 extends Thread {
         h1.num1 = 3;
         h1.start();
         try {
+
             Thread.sleep(3000);
+            // si hacemos h1.join(); nunca termina la suma
         } catch (InterruptedException e){
             e.printStackTrace();
         }

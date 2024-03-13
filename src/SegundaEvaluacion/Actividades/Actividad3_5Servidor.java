@@ -32,9 +32,11 @@ public class Actividad3_5Servidor {
 
                 // Esperar a recibir datos del cliente
                 datagramSocket.receive(recibo);
-                String mensaje = new String(recibo.getData());
+                String mensaje = new String(recibo.getData(), 0 , recibo.getLength());
                 System.out.println("Mensaje recibido del cliente: " + mensaje);
                 String mensajeM = mensaje.toUpperCase();
+
+
 
                 // obtener direccion IP y puerto del cliente
                 InetAddress clientAddress = recibo.getAddress();
@@ -45,14 +47,7 @@ public class Actividad3_5Servidor {
                 DatagramPacket envio = new DatagramPacket(salida, salida.length, clientAddress, clientPort);
 
                 datagramSocket.send(envio);
-
-                if (mensaje.trim().equals("*")) {
-                    System.out.println("Servidor cerrado");
-                    break;
-                }
             }
-
-            datagramSocket.close();
         }catch (Exception e){
             throw new RuntimeException("ERROR " + e.getMessage());
         }

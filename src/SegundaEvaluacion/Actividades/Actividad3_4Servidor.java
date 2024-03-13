@@ -25,8 +25,7 @@ public class Actividad3_4Servidor {
                 Socket clienteConectado = servidor.accept();
                 System.out.println("Cliente " + clienteNumero + " conectado");
 
-                OutputStream salida = clienteConectado.getOutputStream();
-                DataOutputStream flujoSalida = new DataOutputStream(salida);
+                DataOutputStream flujoSalida = new DataOutputStream(clienteConectado.getOutputStream());
 
                 flujoSalida.writeInt(clienteNumero);
 

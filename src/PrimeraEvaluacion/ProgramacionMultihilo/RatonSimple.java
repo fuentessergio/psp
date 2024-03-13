@@ -59,7 +59,7 @@ public class RatonSimple implements Runnable {
 		}
 	}*/
     public static void main(String[] args) { // 2,4,10, 100 y 1000
-        int numHilos = 1000;
+        int numHilos = 2;
         RatonSimple fievel = new RatonSimple("Fievel", 4);
         for (int i = 0; i < numHilos; i++) {
             new Thread(fievel).start();
